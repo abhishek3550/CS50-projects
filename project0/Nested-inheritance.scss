@@ -1,0 +1,35 @@
+div {
+      font-size: 18px;
+      p {
+          color: white;
+      }
+      ul {
+          color: white;
+      }
+  }
+
+
+ %message {
+      font-family: sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+  }
+
+  .index {
+      @extend %message;
+      background-color: #EC06CD;
+  }
+
+  .food {
+      @extend %message;
+      background-color: #06EC10;
+  }
+
+  .places {
+      @extend %message;
+      background-color: #01FFCD;
+  }
+  .culture {
+      @extend %message;
+      background-color: orange;
+  }

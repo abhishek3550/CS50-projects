@@ -1,0 +1,28 @@
+$color: white;
+
+nav ul li a{
+    font-weight:bold;
+    color:$color;
+    font-size:17px;
+    text-tranfrom:uppercase;
+}
+
+a.nav-link,a:hover {
+    transition:.5s;
+}
+
+
+
+    @media (min-width: 500px) {
+  body {
+      background-color: black;
+  }
+  }
+  @media (max-width: 499px) {
+  body {
+      background-color:#4B0082;
+  }
+  }
+
+.container{
+color:$color;}

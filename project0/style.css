@@ -1,0 +1,26 @@
+nav ul li a {
+  font-weight: bold;
+  color: white;
+  font-size: 17px;
+  text-tranfrom: uppercase;
+}
+
+a.nav-link, a:hover {
+  transition: 0.5s;
+}
+
+@media (min-width: 500px) {
+  body {
+    background-color: black;
+  }
+}
+@media (max-width: 499px) {
+  body {
+    background-color: #4B0082;
+  }
+}
+.container {
+  color: white;
+}
+
+/*# sourceMappingURL=style.css.map */
