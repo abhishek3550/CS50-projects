@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %}
+
+    <nav class="navbar navbar-light" style="background-color: #e8ba00">
+<h1 id="logohead"> Pathshala &nbsp;</h1><img src="{{ url_for('static', filename='images/book-branding.jpg')}}" alt="log"  class="booklog">
+
+        <h3 id="welcome" class="navbar-nav ml-auto">Welcome&nbsp;{{ userInfo['fullname'] }}
+            <p style="font-size:20px; color:black;text-align:center;">Reviewed:{{reviewCount}} books</p></h3>
+
+
+        <ul class="navbar-nav ml-auto">
+    <li>
+        <a  href="{{ url_for('Logout')}}"> <button type="submit" class="loginb">Logout</button></a>
+
+
+</ul>
+</nav>
+</div>
+
+
+        {% with messages = get_flashed_messages() %} {% if messages %} {% for i
+        in messages %}
+        <h3 id="alert">
+            <strong>{{i}}</strong></h3>{% endfor %} {%endif%} {%endwith%}
+<br><br><br><br><br><br>
+<div class="singupcontainer">
+<h1 class="quote">"Search Your Favourite Book"</h1>
+        <br>
+<form action="/book" method="POST">
+        <div class="form-group">
+            <input  type="search" name="byIsbn" id="name"  placeholder="Search by ISBN" aria-describedby="name"/>
+          <input type="search" name="byTitle" id="name" placeholder="Search by Title" aria-describedby="name"/>
+          <input type="search" name="byAuthor" id="name" placeholder="Search by Author" aria-describedby="name"/>
+          <input type="number" name="byYear" id="name"  placeholder="Search by Year" aria-describedby="name"/>
+        </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <button type="submit" class="searchbutton">Search</button>
+          Submit
+        </button>
+      </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--    <div class="singupcontainer">-->
+
+<!--        <br><br>-->
+<!--<h1 class="quote">"Search Your Favourite Book"</h1>-->
+<!--        <br>-->
+
+<!--    <form action="/book" method="post">-->
+<!--      <input type="search" placeholder="&nbsp;&nbsp;&nbsp;&nbsp;Isbn,Title,Author,Year" name="booksearch" class="searchbox"><br>-->
+<!--        <br>-->
+<!--      <button type="submit" class="searchbutton">Search</button>-->
+<!--    </form>-->
+<!--    </div>-->
+
+
+
+
+{% endblock%}
