@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{%for i in booktable%}
+{{i[2]}}
+{%endfor%}
+{% endblock %}
+
+{% block body %}
+
+    <nav class="navbar navbar-light" style="background-color: #e8ba00">
+<h1 id="logohead"> Pathshala &nbsp;</h1><img src="{{ url_for('static', filename='images/book-branding.jpg')}}" alt="log"  class="booklog">
+
+
+
+        <ul class="navbar-nav ml-auto">
+    <li>
+    <a  href="{{ url_for('home')}}">  <button type="submit" class="loginb">Home</button></a>
+   <a href="#" onclick="history.go(-1)"><button type="submit" class="loginb">Search</button>&nbsp;</a>
+        <a  href="{{ url_for('Logout')}}"> <button type="submit" class="loginb">Logout</button></a></li>
+
+
+</ul>
+</nav>
+</div>
+
+<br>
+<div class="container px-lg-5" style="background-color:white;">
+        {% with messages = get_flashed_messages() %} {% if messages %} {% for i
+        in messages %}
+        <div style="text-align:center; color:black;" class="alert alert-info" role="alert">
+          <strong>
+            {{i}}
+          </strong>
+        </div>
+        {% endfor %} {%endif%} {%endwith%}
+    <br>
+<div class="row mx-lg-n5">
+<div class="col py-3 px-lg-5 border bg-light">
+        <!-- book info table -->
+    <br>
+    {%if booktable %}
+
+    <table class="table table-sm book-info-table">
+      <thead class="thead-inverse">
+        <!-- data from database -->
+        {%for i in booktable%}
+        <tr style="background-color:#ff6a00;">
+          <th>Title</th>
+          <th class="title">{{i[2]}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Author</th>
+          <td>{{i[3]}}</td>
+        </tr>
+        <tr>
+          <th>Year</th>
+          <td>{{i[4]}}</td>
+        </tr>
+        <tr>
+          <th>ISBN</th>
+          <td>
+            <a href="{{url_for('api' , isbn  = i[1]) }}"> {{i[1]}}</a>
+          </td>
+        </tr>
+        {%endfor%}
+
+        <!-- data from apicall  -->
+        {%if apidata %}
+        <tr>
+          <th>Total Reviews</th>
+          <td>{{apidata['books'][0]['work_reviews_count']}}</td>
+        </tr>
+        <tr>
+          <th>Total Ratings</th>
+          <td>{{apidata['books'][0]['work_ratings_count']}}</td>
+        </tr>
+        <tr>
+          <th>Average rating</th>
+          <td>{{apidata['books'][0]['average_rating']}}</td>
+        </tr>
+        {%endif%}
+      </tbody>
+    </table>
+    {%endif%}
+</div>
+ <div class="col py-3 px-lg-5 border bg-light">
+        {%for i in booktable%}
+    <h3 style="text-align:center; font-weight:bold; ">Submit Your Review</h3>
+    <form action="{{url_for('thebook', isbn= isbn )  }}" method="POST" class="review-form" id="reviewForm">
+      {%endfor%}
+        <table>
+         <tr>
+            <th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr><tr>
+          <td><strong>Rating&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+            <td><input type="radio" name="rating" value="1"></td>
+            <td><input type="radio" name="rating" value="2"></td>
+            <td><input type="radio" name="rating" value="3"></td>
+            <td><input type="radio" name="rating" value="4"></td>
+            <td><input type="radio" name="rating" value="5"></td>
+         </tr>
+          </table><table>
+
+           <tr>
+          <td><strong>ISBN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></td>
+
+              <td>
+            {%for i in booktable %}
+            <input type="text" class="form-control disabled" name="isbn" value="{{i[1]}}" readonly/>
+            {%endfor%}
+         </td>
+        </tr>
+            </tr></table>
+
+ <textarea id="book" name="comment" rows="4" cols="35">
+Write your comment here  </textarea>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button type="submit" style="background-color:#a3021a; color:white;">Post</button>
+
+    </form>
+  </div>
+ </div>
+
+<div class="container">
+
+    <h3 style="text-align:center;">Reviews</h3>
+    {%if reviewstable %} {%for i in reviewstable %}
+
+<div class="alert alert-danger" id="comments">
+      <span>Name:</span>
+      <span> {{i[2]}} </span><br>
+      <span> Rating: </span>
+      <span> {{i[4]}} </span><br>
+      <span>Comment:</span>
+      <span> {{i[3]}} </span>
+    </div>
+    {%endfor%} {%else %}
+
+    <h1>No reviews found</h1>
+    {%endif%}
+  </div>
+</div>
+</div>
+</div>
+{% endblock%}
