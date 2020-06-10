@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %} Login {% endblock %}
+
+{% block body %}
+
+    <nav class="navbar navbar-light" style="background-color: #e8ba00">
+<h1 id="logohead"> Pathshala &nbsp;</h1><img src="{{ url_for('static', filename='images/book-branding.jpg')}}" alt="log"  class="booklog">
+
+        <h2 class="navbar-nav ml-auto text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ alert }}</h2>
+
+
+        <ul class="navbar-nav ml-auto">
+    <li><form action="/signin_validation" method="post">
+      <input type="text" placeholder="Username" name="loginusername">&nbsp;
+      <input type="password" placeholder="Password" name="loginpassword">&nbsp;
+         <button type="submit" class="loginb">Login</button>
+    </form>
+</li>
+</ul>
+</nav>
+</div>
+        {% with messages = get_flashed_messages() %} {% if messages %} {% for i
+        in messages %}
+        <div style="text-align:center; color:black;" class="alert alert-danger" role="alert">
+          <strong>
+            {{i}}
+          </strong>
+        </div>
+        {% endfor %} {%endif%} {%endwith%}
+
+<br><br>
+    <div class="singupcontainer">
+
+
+        <br><br>
+<h1 class="quote">"Read A Thousand Books, And Your Word Will Flow Like A River."</h1>
+        <br><br>
+
+    <form action="/register" method="post">
+        <input type="text" placeholder="Full Name" name="fullname" class="register"><br>
+        <br>
+      <input type="text" placeholder="Username" name="username" class="register"><br>
+
+    <br><input type="password" placeholder="Password" name="password" class="register" ><br>
+<br>
+        <button type="submit" class="signup">Signup</button>
+    </form>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,7 @@
+hope this could help someone, first set flask env like this inside the python virtual env (for windows command prompt)
+
+set FLASK_ENV = development
+then
+
+set FLASK_APP = app.py 
+(app.py should be your flask application file)

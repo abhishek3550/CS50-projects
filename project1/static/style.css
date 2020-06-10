@@ -1,0 +1,73 @@
+body{
+     background-image:url('potter.jpg');
+     }
+    .loginb{
+    background-color:#a3021a;
+    color:white;
+    border-radius:20px;
+    font-size: 20px;
+    font-weigth:bold;
+    }
+
+    .booklog{
+    border-radius:60px;
+    width:80px;
+    }
+    #logohead{
+    font-family:fantasy;
+    font-weight:bold;
+    color:white;
+    }
+    .singupcontainer{
+    border-radius:100px;
+    text-align:center;
+    }
+    .register{
+    opacity: 0.7;
+    font-size:30px;
+    border-radius:15px;
+    }
+    .signup{
+    background-color:#a3021a;
+    color:white;
+    border-radius:15px;
+    font-size: 30px;
+    opacity: 0.9;
+    font-weigth:bold;
+    }
+.quote{
+    font-family:fantasy;
+    font-weight:bold;
+    color:white;
+    }
+    .searchbutton{
+    background-color:#a3021a;
+    color:white;
+    border-radius:15px;
+    font-size: 30px;
+    opacity: 0.9;
+    font-weigth:bold;
+    }
+    .searchbox{
+    opacity: 0.7;
+    font-size:30px;
+    border-radius:15px;
+    }
+
+    #alert{
+    text-align:right;
+    color:white;
+    }
+    #welcome{
+        color:black;
+        font-weight:bold;
+    }
+    .reviewsumit{
+    border:black;
+    border-radius:100px;
+    text-align:center;
+    }
+    #comments{
+    font-weight:bold;
+    font-color:black;
+    }
